@@ -7,9 +7,8 @@ function onClick () {
   theme.value = theme.value === 'light' ? 'dark' : 'light'
 }
 </script>
-
-<template>
-  <v-responsive class="border rounded">
+ <template>
+    <v-responsive class="border rounded">
     <v-app :theme="theme">
       <v-app-bar class="px-3">
         <v-spacer></v-spacer>
@@ -19,23 +18,40 @@ function onClick () {
       </v-app-bar>
 
       <v-main>
-        <v-container class="d-flex justify-center align-center" style="min-height: 100vh;">
+        <v-container>
           <v-row>
             <v-col cols="12" md="6" class="mx-auto">
-              <v-card class="mx-auto" prepend-icon="mdi-account" subtitle="Login">
+              <v-card class="mx-auto" prepend-icon="mdi-account-plus" subtitle="Register">
                 <template v-slot:title>
                   <span class="font-weight-black">AeroCast</span>
                 </template>
 
                 <v-card-text class="bg-surface-light pt-4">
                   <v-form fast-fail @submit.prevent>
-                    <v-text-field
-                    label="Email: "
+
+                  <v-text-field
+                    label="First Name"
                     variant="outlined">
                   </v-text-field>
 
                   <v-text-field
-                    label="Password: "
+                    label="Last Name"
+                    variant="outlined">
+                  </v-text-field>
+
+                  <v-text-field
+                    label="Email"
+                    variant="outlined">
+                  </v-text-field>
+
+                  <v-text-field
+                    label="Password"
+                    type="password"
+                    variant="outlined">
+                  </v-text-field>
+
+                  <v-text-field
+                    label="Password Confirmation"
                     type="password"
                     variant="outlined">
                   </v-text-field>
@@ -46,7 +62,7 @@ function onClick () {
                   </v-form>
 
                   <v-divider class="my-5"></v-divider>
-                  <h5 class="text-center">Don't have an account? <RouterLink to="/register">Click here to Register</RouterLink></h5>
+                  <h5 class="text-center">Already have an account? <RouterLink to="/login">Click here LogIn</RouterLink></h5>
                 </v-card-text>
               </v-card>
             </v-col>
@@ -57,4 +73,4 @@ function onClick () {
       <v-footer border app>2024 - AeroCast</v-footer>
     </v-app>
   </v-responsive>
-</template>
+ </template>
