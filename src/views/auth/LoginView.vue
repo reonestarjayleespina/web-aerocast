@@ -1,5 +1,8 @@
 <script setup>
 import AppLayout from '@/components/layout/AppLayout.vue';
+import LoginForm from '@/components/auth/LoginForm.vue';
+import RegisterForm from '@/components/auth/RegisterForm.vue';
+
 </script>
 
 <!-- prepend-icon="mdi-account" -->
@@ -30,12 +33,9 @@ import AppLayout from '@/components/layout/AppLayout.vue';
                         </v-icon>
                       </div>
                       <!-- <h4 class="text-center mt-4 mb-5">Ensure your email for registration</h4> -->
-                      <v-form>
-                        <v-text-field label="Email" name="Email" prepend-icon="mdi-email" type="text"
-                          color="teal accent-3" />
-                        <v-text-field id="password" label="Password" name="Password" prepend-icon="mdi-lock"
-                          type="password" color="teal accent-3" />
-                      </v-form>
+                      
+                      <LoginForm></LoginForm>
+
                       <h3 class="text-center mt-3">Forgot password?</h3>
                     </v-card-text>
                     <div class="text-center mt-3 mb-10">
@@ -90,38 +90,8 @@ import AppLayout from '@/components/layout/AppLayout.vue';
                         </v-icon>
                       </div>
                       <!-- <h4 class="text-center mt-4 mb-5">Ensure your email for registration</h4> -->
-                      <v-form v-model="valid">
-                        <v-container>
-                          <v-row>
-                            <!-- First Name and Last Name Side by Side -->
-                            <v-col cols="12" md="6">
-                              <v-text-field v-model="firstname" :counter="10" :rules="nameRules" label="First Name"
-                                prepend-icon="mdi-account" required color="teal accent-3"></v-text-field>
-                            </v-col>
-
-                            <v-col cols="12" md="6">
-                              <v-text-field v-model="lastname" :counter="10" :rules="nameRules" label="Last Name"
-                              required color="teal accent-3"></v-text-field>
-                            </v-col>
-                          </v-row>
-
-                          <!-- Email Field on New Line -->
-                          <v-row>
-                            <v-col cols="12">
-                              <v-text-field v-model="email" label="Email" prepend-icon="mdi-email" type="text"
-                                color="teal accent-3"></v-text-field>
-                            </v-col>
-                          </v-row>
-
-                          <!-- Password Field on New Line -->
-                          <v-row>
-                            <v-col cols="12">
-                              <v-text-field id="password" v-model="password" label="Password" prepend-icon="mdi-lock"
-                                type="password" color="teal accent-3"></v-text-field>
-                            </v-col>
-                          </v-row>
-                        </v-container>
-                      </v-form>
+                      
+                      <RegisterForm></RegisterForm>
 
                     </v-card-text>
                     <div class="text-center mt-3 mb-10">
