@@ -66,7 +66,7 @@ import AppLayout from '@/components/layout/AppLayout.vue';
                   <v-col cols="12" md="4"
                     style="background: linear-gradient(to bottom right, rgba(135, 206, 250, 1), rgba(176, 224, 230, 1));">
                     <v-card-text class="mt-12" style="color:#fff;">
-                      <h1 class="text-center display-1">Welcome Back!</h1>
+                      <h1 class="text-center display-1">Join Us Today!</h1>
                       <h5 class="text-center">To keep connected with us please login with your personal info</h5>
                     </v-card-text>
                     <div class="text-center mb-5">
