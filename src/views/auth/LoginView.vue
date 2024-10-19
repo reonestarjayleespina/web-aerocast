@@ -36,13 +36,12 @@ import RegisterForm from '@/components/auth/RegisterForm.vue';
                       
                       <LoginForm></LoginForm>
 
-                      <h3 class="text-center mt-3">Forgot password?</h3>
                     </v-card-text>
-                    <div class="text-center mt-3 mb-10">
+                    <!-- <div class="text-center mt-3 mb-10">
                       <v-btn rounded
                         style="background: linear-gradient(to bottom right, rgba(135, 206, 250, 1), rgba(176, 224, 230, 1));">SIGN
                         IN</v-btn>
-                    </div>
+                    </div> -->
                   </v-col>
 
                   <!-- Right Side -->
@@ -94,49 +93,17 @@ import RegisterForm from '@/components/auth/RegisterForm.vue';
                       <RegisterForm></RegisterForm>
 
                     </v-card-text>
-                    <div class="text-center mt-3 mb-10">
+                    <!-- <div class="text-center mt-3 mb-10">
                       <v-btn rounded
                         style="background: linear-gradient(to bottom right, rgba(135, 206, 250, 1), rgba(176, 224, 230, 1));">SIGN
                         UP</v-btn>
-                    </div>
+                    </div> -->
                   </v-col>
                 </v-row>
               </v-window-item>
             </v-window>
           </v-card>
         </v-col>
-
-        <!-- <v-col cols="12" md="6" class="mx-auto">
-              <v-card class="mx-auto">
-
-                <v-card-title>
-                  <v-img src="/imgs/logo.png" height="200"></v-img>
-                  <h3 class="font-weight-black text-center">AeroCast</h3>
-                </v-card-title>
-
-                <v-card-text class="bg-surface-light pt-4">
-                  <v-form fast-fail @submit.prevent>
-                    <v-text-field
-                    label="Email: "
-                    variant="outlined">
-                  </v-text-field>
-
-                  <v-text-field
-                    label="Password: "
-                    type="password"
-                    variant="outlined">
-                  </v-text-field>
-
-                  <v-btn class="mt-2" 
-                    type="submit" 
-                    block>Submit</v-btn>
-                  </v-form>
-
-                  <v-divider class="my-5"></v-divider>
-                  <h5 class="text-center">Don't have an account? <RouterLink to="/register" class="text-primary">Click here to Register</RouterLink></h5>
-                </v-card-text>
-              </v-card>
-            </v-col> -->
       </v-row>
     </template>
   </AppLayout>
@@ -147,30 +114,42 @@ export default {
   name: 'App',
   data() {
     return {
-      step: -1, // Start with the "Sign In" window
+      step: 0, // Default to "Sign In" (Login Page)
     };
   },
   methods: {
     nextStep() {
-      if (this.step < 2) {
+      if (this.step < 1) { // Two steps: 0 (Login) and 1 (Register)
         this.step++;
+        sessionStorage.setItem('currentStep', this.step); // Save current step to sessionStorage
       }
     },
     previousStep() {
-      if (this.step > -1) {
+      if (this.step > 0) {
         this.step--;
+        sessionStorage.setItem('currentStep', this.step); // Save current step to sessionStorage
       }
     },
   },
+  mounted() {
+    // Retrieve saved step from sessionStorage (if any)
+    const savedStep = sessionStorage.getItem('currentStep');
+
+    if (savedStep !== null && !isNaN(savedStep)) {
+      // Convert saved step to a number and set it as the current step
+      this.step = parseInt(savedStep, 10);
+    } else {
+      // No saved step, ensure the default is login page (step 0)
+      this.step = 0;
+    }
+  },
 };
-
-
 </script>
+
 
 <style scoped>
 .custom-border {
   border: 1px solid #fff;
-  /* Change the color as needed */
 }
 </style>
 

@@ -19,12 +19,12 @@ function onClick () {
       </v-app-bar> -->
 
       <v-main>
-        <v-container class="full-height mt-16" fluid>
+        <v-container class="full-height mt-16 mb-15" fluid>
             <slot name="login_reg"></slot>
         </v-container>
       </v-main>
 
-      <v-footer border app>2024 - AeroCast</v-footer>
+      <!-- <v-footer border app>2024 - AeroCast</v-footer> -->
     </v-app>
   </v-responsive>
 </template>
