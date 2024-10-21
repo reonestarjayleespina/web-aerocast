@@ -32,7 +32,7 @@ import RegisterForm from '@/components/auth/RegisterForm.vue';
                           <v-icon><i class="fa-brands fa-linkedin" style="color: #166bda;"></i></v-icon>
                         </v-icon>
                       </div>
-                      <!-- <h4 class="text-center mt-4 mb-5">Ensure your email for registration</h4> -->
+                      <h4 class="text-center mt-4 mb-5">Ensure your email for registration</h4> 
                       
                       <LoginForm></LoginForm>
 
